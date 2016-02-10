@@ -1,0 +1,235 @@
+{
+    "project": {
+        "name": "itsa-react-togglebutton",
+        "description": "React-Component: ToggleButton",
+        "logo": "https://avatars0.githubusercontent.com/u/8314644?v=3&s=84",
+        "version": "0.0.1"
+    },
+    "files": {
+        "lib/component.jsx": {
+            "name": "lib/component.jsx",
+            "modules": {
+                "component.jsx": 1
+            },
+            "classes": {
+                "Component": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "component.jsx": {
+            "name": "component.jsx",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Component": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/component.jsx",
+            "line": 3,
+            "description": "Description here\n\n\n\n<i>Copyright (c) 2016 ItsAsbreuk - http://itsasbreuk.nl</i><br>\nNew BSD License - http://choosealicense.com/licenses/bsd-3-clause/",
+            "since": "2.0.0"
+        }
+    },
+    "classes": {
+        "Component": {
+            "name": "Component",
+            "shortname": "Component",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component.jsx",
+            "namespace": "",
+            "file": "lib/component.jsx",
+            "line": 3,
+            "description": "Description here\n\n\n\n<i>Copyright (c) 2016 ItsAsbreuk - http://itsasbreuk.nl</i><br>\nNew BSD License - http://choosealicense.com/licenses/bsd-3-clause/"
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "lib/component.jsx",
+            "line": 28,
+            "description": "Array with the keys that can press the button when focussed.\nDefault: [13, 32]",
+            "itemtype": "property",
+            "name": "activatedBy",
+            "type": "Array",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 38,
+            "description": "The aria-label. When not set, it will equal the buttonText",
+            "itemtype": "property",
+            "name": "aria-label",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 47,
+            "description": "The Button-text. Will be escaped. If you need HTML, then use `buttonHTML` instead.\nIf you need different buttonText for the `pressed` and `release`-state, then use\n`buttonTextPressed` and `buttonTextReleased`",
+            "itemtype": "property",
+            "name": "buttonText",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 58,
+            "description": "The Button-text when pressed. Will be escaped. If you need HTML, then use `buttonHTML` instead.",
+            "itemtype": "property",
+            "name": "buttonTextPressed",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 67,
+            "description": "The Button-text. Will be escaped. If you need HTML, then use `buttonHTML` instead.",
+            "itemtype": "property",
+            "name": "buttonTextReleased",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 76,
+            "description": "The Button-text, retaining html-code. If you don't need HTML, then `buttonText` is preferred.\nIf you need different buttonText for the `pressed` and `release`-state, then use\n`buttonHTMLPressed` and `buttonHTMLReleased`",
+            "itemtype": "property",
+            "name": "buttonHTML",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 87,
+            "description": "The Button-text, retaining html-code. If you don't need HTML,\nthen `buttonText` is preferred.",
+            "itemtype": "property",
+            "name": "buttonHTMLPressed",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 97,
+            "description": "The Button-text, retaining html-code. If you don't need HTML,\nthen `buttonText` is preferred.",
+            "itemtype": "property",
+            "name": "buttonHTMLReleased",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 107,
+            "description": "Whether the button is disabled",
+            "itemtype": "property",
+            "name": "disabled",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 116,
+            "description": "The name-attribute of the button",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 125,
+            "description": "Callback wheneveer the button gets clicked.",
+            "itemtype": "property",
+            "name": "onClick",
+            "type": "Function",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 134,
+            "description": "The Component its children",
+            "itemtype": "property",
+            "name": "pressed",
+            "type": "Object",
+            "since": "2.0.0",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 143,
+            "description": "The tabIndex\nDefault: 1",
+            "itemtype": "property",
+            "name": "tabIndex",
+            "type": "Number",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 154,
+            "description": "React render-method --> renderes the Component.",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "ReactComponent"
+            },
+            "since": "2.0.0",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 207,
+            "description": "Returns a save string",
+            "itemtype": "method",
+            "name": "_saveHTML",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "String",
+                    "description": "html the text that should be removed from any html-entities"
+                }
+            ],
+            "return": {
+                "description": "String"
+            },
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        }
+    ],
+    "warnings": []
+}
