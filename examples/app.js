@@ -19748,8 +19748,7 @@
 	"use strict";
 
 	__webpack_require__(160);
-	__webpack_require__(164);
-	module.exports = __webpack_require__(166);
+	module.exports = __webpack_require__(164);
 
 /***/ },
 /* 160 */
@@ -20104,46 +20103,6 @@
 /* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(165);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(163)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./component.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./component.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 165 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(162)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".itsa-togglebutton-expander {\n  position: relative !important;\n  z-index: -1 !important;\n  margin-top: -1.1em !important;\n  visibility: hidden !important; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
 	"use strict";
 
 	/**
@@ -20166,13 +20125,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _itsaReactButton = __webpack_require__(167);
+	var _itsaReactButton = __webpack_require__(165);
 
 	var _itsaReactButton2 = _interopRequireDefault(_itsaReactButton);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ITSA_TOGGLE_EXPANDER_DIV = "<div class=\"itsa-togglebutton-expander\">",
+	var ITSA_TOGGLE_EXPANDER_DIV = "<div style=\"position:relative!important;" + "z-index:-1!important;" + "margin-top:-1.1em!important;" + "visibility:hidden!important;\">",
 	    END_DIV = "</div>",
 	    ARIA_LABEL = "aria-label",
 	    WHITE_SPACE = "&#160;"; // white-space
@@ -20372,7 +20331,7 @@
 	module.exports = Component;
 
 /***/ },
-/* 167 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20401,7 +20360,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(168);
+	var _utils = __webpack_require__(166);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20871,24 +20830,24 @@
 	module.exports = Button;
 
 /***/ },
-/* 168 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	   idGenerator: __webpack_require__(169).idGenerator,
-	   later: __webpack_require__(173).later,
-	   async: __webpack_require__(173).async
+	   idGenerator: __webpack_require__(167).idGenerator,
+	   later: __webpack_require__(171).later,
+	   async: __webpack_require__(171).async
 	};
 
 /***/ },
-/* 169 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	__webpack_require__(170);
+	__webpack_require__(168);
 
 	var UNDEFINED_NS = '__undefined__',
 	    namespaces = {};
@@ -20941,16 +20900,16 @@
 	};
 
 /***/ },
-/* 170 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(171);
-	__webpack_require__(172);
+	__webpack_require__(169);
+	__webpack_require__(170);
 
 /***/ },
-/* 171 */
+/* 169 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -20974,7 +20933,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 172 */
+/* 170 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -20996,7 +20955,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 173 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, process) {/**
@@ -21013,7 +20972,7 @@
 
 	"use strict";
 
-	__webpack_require__(170);
+	__webpack_require__(168);
 
 	var NAME = '[utils-timers]: ',
 	    _asynchronizer,
@@ -21129,10 +21088,10 @@
 	    }
 	  };
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(174).setImmediate, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(172).setImmediate, __webpack_require__(4)))
 
 /***/ },
-/* 174 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {"use strict";
@@ -21213,7 +21172,7 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function (id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(174).setImmediate, __webpack_require__(174).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(172).setImmediate, __webpack_require__(172).clearImmediate))
 
 /***/ }
 /******/ ]);

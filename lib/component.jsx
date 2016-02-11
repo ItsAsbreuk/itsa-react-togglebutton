@@ -17,7 +17,10 @@
 import React, {PropTypes} from "react";
 import Button from "itsa-react-button";
 
-const ITSA_TOGGLE_EXPANDER_DIV = "<div class=\"itsa-togglebutton-expander\">",
+const ITSA_TOGGLE_EXPANDER_DIV = "<div style=\"position:relative!important;"+
+                                              "z-index:-1!important;"+
+                                              "margin-top:-1.1em!important;"+
+                                              "visibility:hidden!important;\">",
       END_DIV = "</div>",
       ARIA_LABEL = "aria-label",
       WHITE_SPACE = "&#160;"; // white-space

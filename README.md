@@ -34,7 +34,7 @@ renderToggleButton();
 
 You need the right css in order to make use of `itsa-react-togglebutton`. There are 2 options:
 
-1. You can use the css-files inside the `css`-folder. Also you need to include the files inside the css-folder of the module: `itsa-react-button`.
+1. You can include the files inside the css-folder of the module: `itsa-react-button`, which is a dependency.
 2. You can use: `Component = require("itsa-react-togglebutton/lib/component-styled.jsx");` and build your project with `webpack`. This is needed, because you need the right plugin to handle a requirement of the `scss`-file.
 
 

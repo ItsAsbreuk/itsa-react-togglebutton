@@ -100,7 +100,10 @@
 import React, {PropTypes} from &quot;react&quot;;
 import Button from &quot;itsa-react-button&quot;;
 
-const ITSA_TOGGLE_EXPANDER_DIV = &quot;&lt;div class=\&quot;itsa-togglebutton-expander\&quot;&gt;&quot;,
+const ITSA_TOGGLE_EXPANDER_DIV = &quot;&lt;div style=\&quot;position:relative!important;&quot;+
+                                              &quot;z-index:-1!important;&quot;+
+                                              &quot;margin-top:-1.1em!important;&quot;+
+                                              &quot;visibility:hidden!important;\&quot;&gt;&quot;,
       END_DIV = &quot;&lt;/div&gt;&quot;,
       ARIA_LABEL = &quot;aria-label&quot;,
       WHITE_SPACE = &quot;&amp;#160;&quot;; // white-space
