@@ -1,6 +1,6 @@
 {
   "name": "itsa-react-togglebutton",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Interactive Toggle-button",
   "author": [
     {
@@ -31,7 +31,7 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "itsa-react-button": "0.0.2",
+    "itsa-react-button": "0.0.12",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
   },

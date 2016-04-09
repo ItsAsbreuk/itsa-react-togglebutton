@@ -8012,6 +8012,10 @@
 	  }
 	};
 
+	function registerNullComponentID() {
+	  ReactEmptyComponentRegistry.registerNullComponentID(this._rootNodeID);
+	}
+
 	var ReactEmptyComponent = function ReactEmptyComponent(instantiate) {
 	  this._currentElement = null;
 	  this._rootNodeID = null;
@@ -8020,7 +8024,7 @@
 	assign(ReactEmptyComponent.prototype, {
 	  construct: function construct(element) {},
 	  mountComponent: function mountComponent(rootID, transaction, context) {
-	    ReactEmptyComponentRegistry.registerNullComponentID(rootID);
+	    transaction.getReactMountReady().enqueue(registerNullComponentID, this);
 	    this._rootNodeID = rootID;
 	    return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
 	  },
@@ -18769,7 +18773,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.7';
+	module.exports = '0.14.8';
 
 /***/ },
 /* 147 */
@@ -19785,7 +19789,7 @@
 
 
 	// module
-	exports.push([module.id, "button.itsa-button {\n  margin: 0;\n  padding: 0.5em 1em;\n  font: inherit;\n  /* 2 */\n  font-family: inherit;\n  font-size: 100%;\n  color: #444;\n  /* rgba not supported (IE 8) */\n  color: rgba(0, 0, 0, 0.8);\n  /* rgba supported */\n  border: 1px solid #999;\n  /*IE 6/7/8*/\n  border: none transparent;\n  /*IE9 + everything else*/\n  background-color: #E6E6E6;\n  text-decoration: none;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;\n  display: inline-block;\n  position: relative;\n  vertical-align: middle;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  overflow: visible;\n  text-transform: none;\n  -webkit-appearance: button;\n  /* 2 */\n  line-height: normal;\n  white-space: nowrap;\n  vertical-align: baseline;\n  text-align: center;\n  cursor: pointer; }\n\nbutton.itsa-button-primary {\n  background-color: #0078E7;\n  color: #FFF; }\n\nbutton.itsa-button-toggled {\n  background-color: #0078E7;\n  color: #FFF; }\n\nbutton.itsa-button:hover, button.itsa-button:hover:focus {\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);\n  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.15)));\n  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8) inset; }\n\nbutton.itsa-button:focus {\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);\n  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));\n  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6) inset;\n  outline: 0; }\n\nbutton.itsa-button-active {\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8) inset, 0 0 10px rgba(0, 0, 0, 0.4) inset; }\n\nbutton.itsa-button:not(.itsa-button-togglebtn):active:hover, button.itsa-button:not(.itsa-button-togglebtn):active:focus, button.itsa-button:not(.itsa-button-togglebtn):active:hover:focus, button.itsa-button-active:not(.itsa-button-togglebtn):hover, button.itsa-button-active:not(.itsa-button-togglebtn):focus, button.itsa-button-active:not(.itsa-button-togglebtn):hover:focus {\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8) inset, 0 0 10px black inset; }\n\nbutton.itsa-button[disabled], button.itsa-button[disabled]:focus, button.itsa-button[disabled]:hover, button.itsa-button[disabled]:active, button.itsa-button[disabled].itsa-button-active {\n  border: none;\n  background-image: none;\n  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);\n  filter: alpha(opacity=60);\n  -khtml-opacity: 0.6;\n  -moz-opacity: 0.6;\n  opacity: 0.6;\n  cursor: not-allowed;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;\n  cursor: default; }\n\nbutton.itsa-button-smoothrounded {\n  border-radius: 2px; }\n\nbutton.itsa-button-rounded {\n  border-radius: 0.3em; }\n\nbutton.itsa-button-heavyrounded {\n  border-radius: 0.5em; }\n\nbutton.itsa-button-oval {\n  border-radius: 50%; }\n\nbutton.itsa-button-halfoval {\n  border-radius: 25%; }\n", ""]);
+	exports.push([module.id, "button.itsa-button {\n  margin: 0;\n  padding: 0.5em 1em;\n  font: inherit;\n  /* 2 */\n  font-family: inherit;\n  font-size: 100%;\n  color: #444;\n  /* rgba not supported (IE 8) */\n  color: rgba(0, 0, 0, 0.8);\n  /* rgba supported */\n  border: 1px solid #999;\n  /*IE 6/7/8*/\n  border: none transparent;\n  /*IE9 + everything else*/\n  background-color: #E6E6E6;\n  text-decoration: none;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;\n  display: inline-block;\n  position: relative;\n  vertical-align: middle;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  text-transform: none;\n  -webkit-appearance: button;\n  /* 2 */\n  line-height: normal;\n  white-space: nowrap;\n  vertical-align: baseline;\n  text-align: center;\n  cursor: pointer; }\n\nbutton.itsa-button-primary {\n  background-color: #0078E7;\n  color: #FFF; }\n\nbutton.itsa-button-toggled {\n  background-color: #0078E7;\n  color: #FFF; }\n\nbutton.itsa-button:hover, button.itsa-button.itsa-button-hover, button.itsa-button:hover:focus, button.itsa-button.itsa-button-hover:focus {\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);\n  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.15)));\n  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8) inset; }\n\nbutton.itsa-button:focus {\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);\n  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));\n  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6) inset;\n  outline: 0; }\n\nbutton.itsa-button::-moz-focus-inner {\n  /* firefox focusring */\n  border: 0; }\n\nbutton.itsa-button-active {\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8) inset, 0 0 10px rgba(0, 0, 0, 0.4) inset; }\n\nbutton.itsa-button:not(.itsa-button-togglebtn):active:hover, button.itsa-button:not(.itsa-button-togglebtn).itsa-button-hover:active, button.itsa-button:not(.itsa-button-togglebtn):active:focus, button.itsa-button:not(.itsa-button-togglebtn):active:hover:focus, button.itsa-button:not(.itsa-button-togglebtn).itsa-button-hover:active:focus, button.itsa-button-active:not(.itsa-button-togglebtn):hover, button.itsa-button-active:not(.itsa-button-togglebtn).itsa-button-hover, button.itsa-button-active:not(.itsa-button-togglebtn):focus, button.itsa-button-active:not(.itsa-button-togglebtn):hover:focus, button.itsa-button-active:not(.itsa-button-togglebtn).itsa-button-hover:focus {\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8) inset, 0 0 10px black inset; }\n\nbutton.itsa-button[disabled], button.itsa-button[disabled]:focus, button.itsa-button[disabled]:hover, button.itsa-button[disabled].itsa-button-hover, button.itsa-button[disabled]:active, button.itsa-button[disabled].itsa-button-active, button.itsa-button[disabled]:active:hover, button.itsa-button[disabled].itsa-button-hover:active, button.itsa-button[disabled].itsa-button-active:hover, button.itsa-button[disabled].itsa-button-active.itsa-button-hover, button.itsa-button[disabled]:active:focus, button.itsa-button[disabled].itsa-button-active:focus, button.itsa-button[disabled]:active:focus:hover, button.itsa-button[disabled].itsa-button-hover:active:focus, button.itsa-button[disabled].itsa-button-active:focus:hover, button.itsa-button[disabled].itsa-button-hover.itsa-button-active:focus {\n  border: none;\n  background-image: none;\n  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);\n  filter: alpha(opacity=60);\n  -khtml-opacity: 0.6;\n  -moz-opacity: 0.6;\n  opacity: 0.6;\n  cursor: not-allowed;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;\n  cursor: default; }\n\nbutton.itsa-button-smoothrounded {\n  border-radius: 2px; }\n\nbutton.itsa-button-rounded {\n  border-radius: 0.3em; }\n\nbutton.itsa-button-heavyrounded {\n  border-radius: 0.5em; }\n\nbutton.itsa-button-oval {\n  border-radius: 50%; }\n\nbutton.itsa-button-halfoval {\n  border-radius: 25%; }\n", ""]);
 
 	// exports
 
@@ -20062,7 +20066,6 @@
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
-		var sourceMap = obj.sourceMap;
 
 		if(media) {
 			styleElement.setAttribute("media", media)
@@ -20080,7 +20083,6 @@
 
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
-		var media = obj.media;
 		var sourceMap = obj.sourceMap;
 
 		if(sourceMap) {
@@ -20275,10 +20277,10 @@
 	   * @since 2.0.0
 	   */
 	  render: function render() {
-	    var ariaLabel = undefined,
-	        buttonHTML = undefined,
-	        buttonHTMLPressed = undefined,
-	        buttonHTMLReleased = undefined;
+	    var ariaLabel = void 0,
+	        buttonHTML = void 0,
+	        buttonHTMLPressed = void 0,
+	        buttonHTMLReleased = void 0;
 	    var instance = this,
 	        props = instance.props,
 	        buttonTextPressed = props.buttonTextPressed || props.buttonText,
@@ -20350,6 +20352,8 @@
 	 * @since 0.0.1
 	*/
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _react = __webpack_require__(1);
@@ -20360,7 +20364,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(166);
+	var _itsaUtils = __webpack_require__(166);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20465,6 +20469,16 @@
 	        onClick: _react.PropTypes.func,
 
 	        /**
+	         * Whether keypress should show active status. (should be set `false` for file-uploadbuttons)
+	         * Default: true
+	         *
+	         * @property showActivated
+	         * @type Boolean
+	         * @since 0.0.5
+	        */
+	        showActivated: _react.PropTypes.bool,
+
+	        /**
 	         * The tabIndex
 	         * Default: 1
 	         *
@@ -20545,6 +20559,7 @@
 	            buttonPressTime: DEF_BUTTON_PRESS_TIME,
 	            directResponse: true,
 	            disabled: false,
+	            showActivated: true,
 	            tabIndex: 1,
 	            type: 'button'
 	        };
@@ -20624,9 +20639,9 @@
 	                            active: true
 	                        });
 	                        pressTimer && pressTimer.cancel();
-	                        instance.pressTimer = (0, _utils.later)(instance._processKeyUp.bind(instance, null, isDirectResponse, forced), props.buttonPressTime);
+	                        instance.pressTimer = (0, _itsaUtils.later)(instance._processKeyUp.bind(instance, null, isDirectResponse, forced), props.buttonPressTime);
 	                        if (isDirectResponse) {
-	                            onClick && onClick();
+	                            onClick && (0, _itsaUtils.later)(onClick, 100); // we MUST delay, because an `onClick` that rerenders, would prevent `onKeyUp` from happening!
 	                        }
 	                    }
 	                }
@@ -20647,7 +20662,7 @@
 	        // we must go async --> instance._keyDown cannot be set 'false' right away,
 	        // because the handleClick method needs to be processed first
 	        // if we don;t do this, props.onClick() would be executed twice when the spacebutton is pressed
-	        (0, _utils.async)(function () {
+	        (0, _itsaUtils.async)(function () {
 	            var instance = _this;
 	            instance._keyDown = false;
 	            if (_typeof(instance.props.toggled) !== BOOLEAN && instance.state.active) {
@@ -20681,7 +20696,7 @@
 	        // we must go async --> instance._mouseDown cannot be set 'false' right away,
 	        // because the handleClick method needs to be processed first
 	        // if we don;t do this, props.onClick() would be executed twice when the spacebutton is pressed
-	        (0, _utils.async)(function () {
+	        (0, _itsaUtils.async)(function () {
 	            return _this2._mouseDown = false;
 	        });
 	    },
@@ -20710,13 +20725,14 @@
 	    render: function render() {
 	        var classname = MAIN_CLASS,
 	            buttonHTML = this.props.buttonHTML,
-	            dangerouslySetInnerHTML = undefined,
-	            buttonText = undefined,
-	            handleClick = undefined,
-	            handleKeyDown = undefined,
-	            handleKeyUp = undefined,
-	            handleMouseDown = undefined,
-	            handleMouseUp = undefined;
+	            dataAttrs = {},
+	            dangerouslySetInnerHTML = void 0,
+	            buttonText = void 0,
+	            handleClick = void 0,
+	            handleKeyDown = void 0,
+	            handleKeyUp = void 0,
+	            handleMouseDown = void 0,
+	            handleMouseUp = void 0;
 
 	        var instance = this,
 	            props = instance.props,
@@ -20728,7 +20744,7 @@
 	            ariaLabel = props["aria-label"] || saveButtonText || instance._saveHTML(buttonHTML);
 
 	        if (state.active || props.toggled) {
-	            classname += " " + MAIN_CLASS_PREFIX + "active";
+	            props.showActivated && (classname += " " + MAIN_CLASS_PREFIX + "active");
 	            props.toggled && (classname += " " + MAIN_CLASS_PREFIX + "toggled");
 	        }
 	        isToggleButton && (classname += " " + MAIN_CLASS_PREFIX + "togglebtn");
@@ -20755,7 +20771,8 @@
 
 	        return _react2.default.createElement(
 	            "button",
-	            { accessKey: props.accessKey,
+	            _extends({}, instance._getDataAttrs(), {
+	                accessKey: props.accessKey,
 	                "aria-label": ariaLabel,
 	                "aria-pressed": props.toggled,
 	                className: classname,
@@ -20769,9 +20786,29 @@
 	                onMouseUp: handleMouseUp,
 	                role: "button",
 	                tabIndex: props.tabIndex,
-	                type: props.type },
+	                type: props.type }),
 	            buttonText
 	        );
+	    },
+
+
+	    /**
+	     * Extracts the `data-*` attributes from props.
+	     *
+	     * @method _getDataAttrs
+	     * @private
+	     * @return object all the data-* attributes
+	     * @since 0.0.3
+	     */
+	    _getDataAttrs: function _getDataAttrs() {
+	        var dataAttrs = {};
+	        var props = this.props,
+	            keys = Object.keys(props);
+
+	        keys.forEach(function (key) {
+	            key.substr(0, 5).toLowerCase() === "data-" && (dataAttrs[key] = props[key]);
+	        });
+	        return dataAttrs;
 	    },
 
 
@@ -20833,23 +20870,21 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	module.exports = {
 	   idGenerator: __webpack_require__(167).idGenerator,
-	   later: __webpack_require__(171).later,
-	   async: __webpack_require__(171).async
+	   later: __webpack_require__(168).later,
+	   async: __webpack_require__(168).async
 	};
 
 /***/ },
 /* 167 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	"use strict";
 
-	__webpack_require__(168);
-
-	var UNDEFINED_NS = '__undefined__',
+	var UNDEFINED_NS = "__undefined__",
 	    namespaces = {};
 
 	/**
@@ -20869,26 +20904,26 @@
 	 *
 	 * @example
 	 *
-	 *     var generator = require('core-utils-idgenerator');
+	 *     var generator = require("core-utils-idgenerator");
 	 *
 	 *     console.log(generator()); // --> 1
 	 *     console.log(generator()); // --> 2
 	 *     console.log(generator(1000)); // --> 1000
 	 *     console.log(generator()); // --> 1001
-	 *     console.log(generator('Parcel, 500')); // -->"Parcel-500"
-	 *     console.log(generator('Parcel')); // -->"Parcel-501"
+	 *     console.log(generator("Parcel, 500")); // -->"Parcel-500"
+	 *     console.log(generator("Parcel")); // -->"Parcel-501"
 	 *
 	 *
 	 * @method idGenerator
 	 * @param [namespace] {String} namespace to prepend the generated id.
 	 *        When ignored, the generator just returns a number.
-	 * @param [start] {Number} startvalue for the next generated id. Any further generated id's will preceed this id.
+	 * @param [start] {Number} startvalue for the next generated id. Any further generated id"s will preceed this id.
 	 *        If `start` is lower or equal than the last generated id, it will be ignored.
 	 * @return {Number|String} an unique id. Either a number, or a String (digit prepended with "namespace-")
 	 */
 	module.exports.idGenerator = function (namespace, start) {
 	  // in case `start` is set at first argument, transform into (null, start)
-	  typeof namespace === 'number' && (start = namespace) && (namespace = null);
+	  typeof namespace === "number" && (start = namespace) && (namespace = null);
 	  namespace || (namespace = UNDEFINED_NS);
 
 	  if (!namespaces[namespace]) {
@@ -20896,66 +20931,11 @@
 	  } else if (start && namespaces[namespace] < start) {
 	    namespaces[namespace] = start;
 	  }
-	  return namespace === UNDEFINED_NS ? namespaces[namespace]++ : namespace + '-' + namespaces[namespace]++;
+	  return namespace === UNDEFINED_NS ? namespaces[namespace]++ : namespace + "-" + namespaces[namespace]++;
 	};
 
 /***/ },
 /* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(169);
-	__webpack_require__(170);
-
-/***/ },
-/* 169 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
-
-	(function (global) {
-	    "use strict";
-
-	    var CONSOLE = {
-	        log: function log() {/* NOOP */},
-	        info: function info() {/* NOOP */},
-	        warn: function warn() {/* NOOP */},
-	        error: function error() {/* NOOP */}
-	    };
-
-	    global.console || function (GlobalPrototype) {
-	        GlobalPrototype.console = CONSOLE;
-	    }(global.prototype);
-
-	    module.exports = CONSOLE;
-	})(typeof global !== 'undefined' ? global : /* istanbul ignore next */undefined);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 170 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
-
-	// based upon https://gist.github.com/jonathantneal/3062955
-	(function (global) {
-	    "use strict";
-
-	    global.Element && function (ElementPrototype) {
-	        ElementPrototype.matchesSelector || (ElementPrototype.matchesSelector = ElementPrototype.mozMatchesSelector || ElementPrototype.msMatchesSelector || ElementPrototype.oMatchesSelector || ElementPrototype.webkitMatchesSelector || function (selector) {
-	            var node = this,
-	                nodes = (node.parentNode || global.document).querySelectorAll(selector),
-	                i = -1;
-	            while (nodes[++i] && nodes[i] !== node) {}
-	            return !!nodes[i];
-	        });
-	    }(global.Element.prototype);
-	})(typeof global !== 'undefined' ? global : /* istanbul ignore next */undefined);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, process) {/**
@@ -20972,11 +20952,7 @@
 
 	"use strict";
 
-	__webpack_require__(168);
-
-	var NAME = '[utils-timers]: ',
-	    _asynchronizer,
-	    _async;
+	var _asynchronizer, _async;
 
 	/**
 	 * Forces a function to be run asynchronously, but as fast as possible. In Node.js
@@ -20987,9 +20963,9 @@
 	 * @static
 	 * @private
 	**/
-	_asynchronizer = typeof setImmediate !== 'undefined' ? function (fn) {
+	_asynchronizer = typeof setImmediate !== "undefined" ? function (fn) {
 	  setImmediate(fn);
-	} : typeof process !== 'undefined' && process.nextTick ? process.nextTick : function (fn) {
+	} : typeof process !== "undefined" && process.nextTick ? process.nextTick : function (fn) {
 	  setTimeout(fn, 0);
 	};
 
@@ -20998,20 +20974,19 @@
 	 * requires a specific execution context or arguments, wrap it with Function.bind.
 	 *
 	 * I.async returns an object with a cancel method.  If the cancel method is
-	 * called before the callback function, the callback function won't be called.
+	 * called before the callback function, the callback function won"t be called.
 	 *
 	 * @method async
 	 * @param {Function} callbackFn
 	 * @param [invokeAfterFn=true] {boolean} set to false to prevent the _afterSyncFn to be invoked
 	 * @return {Object} An object with a cancel method.  If the cancel method is
-	 * called before the callback function, the callback function won't be called.
+	 * called before the callback function, the callback function won"t be called.
 	**/
 	_async = function _async(callbackFn, invokeAfterFn) {
-	  console.log(NAME, 'async');
 	  var canceled;
 
-	  invokeAfterFn = typeof invokeAfterFn === 'boolean' ? invokeAfterFn : true;
-	  typeof callbackFn === 'function' && _asynchronizer(function () {
+	  invokeAfterFn = typeof invokeAfterFn === "boolean" ? invokeAfterFn : true;
+	  typeof callbackFn === "function" && _asynchronizer(function () {
 	    if (!canceled) {
 	      callbackFn();
 	    }
@@ -21029,13 +21004,13 @@
 	 * requires a specific execution context or arguments, wrap it with Function.bind.
 	 *
 	 * I.async returns an object with a cancel method.  If the cancel method is
-	 * called before the callback function, the callback function won't be called.
+	 * called before the callback function, the callback function won"t be called.
 	 *
 	 * @method async
 	 * @param {Function} callbackFn
 	 * @param [invokeAfterFn=true] {boolean} set to false to prevent the _afterSyncFn to be invoked
 	 * @return {Object} An object with a cancel method.  If the cancel method is
-	 * called before the callback function, the callback function won't be called.
+	 * called before the callback function, the callback function won"t be called.
 	**/
 	module.exports.async = _async;
 
@@ -21043,26 +21018,25 @@
 	 * Invokes the callbackFn after a timeout (asynchronous). If the function
 	 * requires a specific execution context or arguments, wrap it with Function.bind.
 	 *
-	 * To invoke the callback function periodic, set 'periodic' either 'true', or specify a second timeout.
-	 * If number, then periodic is considered 'true' but with a perdiod defined by 'periodic',
-	 * which means: the first timer executes after 'timeout' and next timers after 'period'.
+	 * To invoke the callback function periodic, set "periodic" either "true", or specify a second timeout.
+	 * If number, then periodic is considered "true" but with a perdiod defined by "periodic",
+	 * which means: the first timer executes after "timeout" and next timers after "period".
 	 *
 	 * I.later returns an object with a cancel method.  If the cancel() method is
-	 * called before the callback function, the callback function won't be called.
+	 * called before the callback function, the callback function won"t be called.
 	 *
 	 * @method later
 	 * @param callbackFn {Function} the function to execute.
 	 * @param [timeout] {Number} the number of milliseconds to wait until the callbackFn is executed.
 	 * when not set, the callback function is invoked once in the next turn of the JavaScript event loop.
-	 * @param [periodic] {boolean|Number} if true, executes continuously at supplied, if number, then periodic is considered 'true' but with a perdiod
-	 * defined by 'periodic', which means: the first timer executes after 'timeout' and next timers after 'period'.
+	 * @param [periodic] {boolean|Number} if true, executes continuously at supplied, if number, then periodic is considered "true" but with a perdiod
+	 * defined by "periodic", which means: the first timer executes after "timeout" and next timers after "period".
 	 * The interval executes until canceled.
 	 * @return {object} a timer object. Call the cancel() method on this object to stop the timer.
 	*/
 	module.exports.later = function (callbackFn, timeout, periodic) {
-	  console.log(NAME, 'later --> timeout: ' + timeout + 'ms | periodic: ' + periodic);
 	  var canceled = false;
-	  if (typeof timeout !== 'number') {
+	  if (typeof timeout !== "number") {
 	    return _async(callbackFn);
 	  }
 	  var wrapper = function wrapper() {
@@ -21073,11 +21047,11 @@
 	      // we are NOT using setInterval, because that leads to problems when the callback
 	      // lasts longer than the interval. Instead, we use the interval as inbetween-phase
 	      // between the separate callbacks.
-	      id = periodic ? setTimeout(wrapper, typeof periodic === 'number' ? periodic : timeout) : null;
+	      id = periodic ? setTimeout(wrapper, typeof periodic === "number" ? periodic : timeout) : null;
 	    }
 	  },
 	      id;
-	  typeof callbackFn === 'function' && (id = setTimeout(wrapper, timeout));
+	  typeof callbackFn === "function" && (id = setTimeout(wrapper, timeout));
 
 	  return {
 	    cancel: function cancel() {
@@ -21088,10 +21062,10 @@
 	    }
 	  };
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(172).setImmediate, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(169).setImmediate, __webpack_require__(4)))
 
 /***/ },
-/* 172 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {"use strict";
@@ -21172,7 +21146,7 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function (id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(172).setImmediate, __webpack_require__(172).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(169).setImmediate, __webpack_require__(169).clearImmediate))
 
 /***/ }
 /******/ ]);
