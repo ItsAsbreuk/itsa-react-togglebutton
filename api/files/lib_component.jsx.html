@@ -97,8 +97,9 @@
  * @since 2.0.0
 */
 
-import React, {PropTypes} from &quot;react&quot;;
-import Button from &quot;itsa-react-button&quot;;
+const React = require(&quot;react&quot;),
+    PropTypes = React.PropTypes,
+    Button = require(&quot;itsa-react-button&quot;);
 
 const ITSA_TOGGLE_EXPANDER_DIV = &quot;&lt;div style=\&quot;position:relative!important;&quot;+
                                               &quot;z-index:-1!important;&quot;+

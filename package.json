@@ -1,6 +1,6 @@
 {
   "name": "itsa-react-togglebutton",
-  "version": "0.0.5",
+  "version": "15.1.14",
   "description": "Interactive Toggle-button",
   "author": [
     {
@@ -19,6 +19,7 @@
     "itsasbreuk",
     "itsa",
     "react-component",
+    "react",
     "togglebutton",
     "button"
   ],
@@ -31,9 +32,11 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "itsa-react-button": "0.0.12",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "itsa-react-button": "^15.2.19"
+  },
+  "peerDependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
@@ -52,7 +55,9 @@
     "jshint": "^2.5.5",
     "mocha": "^1.21.4",
     "node-sass": "^3.4.2",
-    "react-addons-test-utils": "^0.14.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-addons-test-utils": "^15.0.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2",

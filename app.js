@@ -24,7 +24,6 @@ const handleChange1 = () => {
 
 const handleChange2 = () => {
     props2.pressed = !props2.pressed;
-console.info('handleChange2', props2);
     renderCheckBox2();
 };
 

@@ -14,8 +14,9 @@
  * @since 2.0.0
 */
 
-import React, {PropTypes} from "react";
-import Button from "itsa-react-button";
+const React = require("react"),
+    PropTypes = React.PropTypes,
+    Button = require("itsa-react-button");
 
 const ITSA_TOGGLE_EXPANDER_DIV = "<div style=\"position:relative!important;"+
                                               "z-index:-1!important;"+
@@ -108,6 +109,15 @@ const Component = React.createClass({
         buttonHTMLReleased: PropTypes.string,
 
         /**
+         * The class that should be set on the element
+         *
+         * @property className
+         * @type String
+         * @since 0.0.1
+        */
+        className: PropTypes.string,
+
+        /**
          * Whether the button is disabled
          *
          * @property disabled
@@ -144,6 +154,15 @@ const Component = React.createClass({
         pressed: PropTypes.bool.isRequired,
 
         /**
+         * Inline style
+         *
+         * @property object
+         * @type String
+         * @since 0.0.1
+        */
+        style: PropTypes.object,
+
+        /**
          * The tabIndex
          * Default: 1
          *
@@ -152,6 +171,18 @@ const Component = React.createClass({
          * @since 0.0.1
         */
         tabIndex: PropTypes.number
+    },
+
+    /**
+     * Sets the focus on the Component.
+     *
+     * @method focus
+     * @param [transitionTime] {Number} transition-time to focus the element into the view
+     * @chainable
+     * @since 0.0.1
+     */
+    focus(transitionTime) {
+        return this.refs["button-element"].focus(transitionTime);
     },
 
     /**
@@ -202,6 +233,7 @@ const Component = React.createClass({
                 aria-label={ariaLabel}
                 buttonHTML={buttonHTML}
                 onClick={props.onChange}
+                ref="button-element"
                 toggled={props.pressed}
                 type="button" />
         );
