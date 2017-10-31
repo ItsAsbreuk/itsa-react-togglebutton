@@ -44,7 +44,7 @@ class Component extends React.Component {
      * @since 0.0.1
      */
     focus(transitionTime) {
-        return this.refs["button-element"].focus(transitionTime);
+        return this._buttonElement.focus(transitionTime);
     }
 
     /**
@@ -95,7 +95,7 @@ class Component extends React.Component {
                 aria-label={ariaLabel}
                 buttonHTML={buttonHTML}
                 onClick={props.onChange}
-                ref="button-element"
+                ref={inst => instance._buttonElement = inst}
                 toggled={props.pressed}
                 type="button" />
         );
@@ -135,6 +135,15 @@ Component.propTypes = {
      * @since 0.0.1
     */
     "aria-label": PropTypes.string,
+
+    /**
+     * Whether to autofocus the Component.
+     *
+     * @property autoFocus
+     * @type Boolean
+     * @since 0.0.1
+    */
+    autoFocus: PropTypes.bool,
 
     /**
      * The Button-text. Will be escaped. If you need HTML, then use `buttonHTML` instead.

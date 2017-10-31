@@ -131,6 +131,17 @@
         {
             "file": "lib/component.jsx",
             "line": 139,
+            "description": "Whether to autofocus the Component.",
+            "itemtype": "property",
+            "name": "autoFocus",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Component",
+            "module": "component.jsx"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 148,
             "description": "The Button-text. Will be escaped. If you need HTML, then use `buttonHTML` instead.\nIf you need different buttonText for the `pressed` and `release`-state, then use\n`buttonTextPressed` and `buttonTextReleased`",
             "itemtype": "property",
             "name": "buttonText",
@@ -141,7 +152,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 150,
+            "line": 159,
             "description": "The Button-text when pressed. Will be escaped. If you need HTML, then use `buttonHTML` instead.",
             "itemtype": "property",
             "name": "buttonTextPressed",
@@ -152,7 +163,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 159,
+            "line": 168,
             "description": "The Button-text. Will be escaped. If you need HTML, then use `buttonHTML` instead.",
             "itemtype": "property",
             "name": "buttonTextReleased",
@@ -163,7 +174,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 168,
+            "line": 177,
             "description": "The Button-text, retaining html-code. If you don't need HTML, then `buttonText` is preferred.\nIf you need different buttonText for the `pressed` and `release`-state, then use\n`buttonHTMLPressed` and `buttonHTMLReleased`",
             "itemtype": "property",
             "name": "buttonHTML",
@@ -174,7 +185,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 179,
+            "line": 188,
             "description": "The Button-text, retaining html-code. If you don't need HTML,\nthen `buttonText` is preferred.",
             "itemtype": "property",
             "name": "buttonHTMLPressed",
@@ -185,7 +196,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 189,
+            "line": 198,
             "description": "The Button-text, retaining html-code. If you don't need HTML,\nthen `buttonText` is preferred.",
             "itemtype": "property",
             "name": "buttonHTMLReleased",
@@ -196,7 +207,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 199,
+            "line": 208,
             "description": "The class that should be set on the element",
             "itemtype": "property",
             "name": "className",
@@ -207,7 +218,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 208,
+            "line": 217,
             "description": "Whether the button is disabled",
             "itemtype": "property",
             "name": "disabled",
@@ -218,7 +229,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 217,
+            "line": 226,
             "description": "The name-attribute of the button",
             "itemtype": "property",
             "name": "name",
@@ -229,7 +240,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 226,
+            "line": 235,
             "description": "Callback wheneveer the button gets clicked.",
             "itemtype": "property",
             "name": "onClick",
@@ -240,7 +251,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 235,
+            "line": 244,
             "description": "The Component its children",
             "itemtype": "property",
             "name": "pressed",
@@ -251,7 +262,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 244,
+            "line": 253,
             "description": "Inline style",
             "itemtype": "property",
             "name": "object",
@@ -262,7 +273,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 253,
+            "line": 262,
             "description": "The tabIndex\nDefault: 1",
             "itemtype": "property",
             "name": "tabIndex",

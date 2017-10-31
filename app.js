@@ -12,6 +12,7 @@ let props = {
 };
 
 let props2 = {
+    autoFocus: true,
     buttonTextPressed: "Operational",
     buttonTextReleased: "Shut off",
     pressed: false
